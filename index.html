@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>To Do List</title>
+	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="icon" href="img/favicon.png">
+	<meta property="og:image" content="img/@1x/preview.jpg">
+	
+	<link rel="stylesheet" href="css/styles.min.css">
+
+	<link href="fonts/fontawesome-free-5.11.2-web/css/fontawesome.css" rel="stylesheet">
+  <link href="fonts/fontawesome-free-5.11.2-web/css/brands.css" rel="stylesheet">
+  <link href="fonts/fontawesome-free-5.11.2-web/css/solid.css" rel="stylesheet">
+  <link href="fonts/fontawesome-free-5.11.2-web/css/regular.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+</head>
+
+<body>
+
+	<section class="toDoList_main animated fadeInUp">
+		<div class="left__block">
+			<div id="root">
+				<div class="container">
+					<div class="new-task">
+						<input id="new-task" type="text" placeholder="Додати завдання">
+						<button id="add">	<i class="fas fa-plus" id="add-task-button"></i></button>
+					</div>
+					
+					<h3>Список завдань</h3>
+					<div class="list-tasks">
+						<div class="ul">
+								<ul id="unfinished-tasks">
+								</ul>
+							</div>
+						
+							<div class="ul">
+								<ul id="finished-tasks">
+								</ul>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="right__block">
+			<div class="alarm-clock">
+				<div class="time">
+					<span class="hours">16</span>
+					<span class="colon">:</span>
+					<span class="minutes">41</span>
+					<span class="colon">:</span>
+					<span class="seconds">36</span>
+				</div>
+				<div class="date">
+					<span class="month">December</span>
+					<span class="day">14</span>
+					<span class="year">2019</span>
+				</div>
+			</div>
+			<div class="number-of-all-tasks">
+				<div id="all">Всього завдань: <span></span></div>
+				<div id="fin">Виконано завдань: <span></span></div>
+				<div id="unfin">Не виконано: <span></span></div>
+			</div>
+			<div class="rights">
+				All rights reserved &#169; Hubytskyi
+			</div>
+		</div>
+	</section>
+	
+	<script src="js/scripts.min.js"></script>
+
+</body>
+</html>

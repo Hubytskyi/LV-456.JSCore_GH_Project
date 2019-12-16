@@ -1,0 +1,251 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: lighten($text, 20%)
+
+::selection
+	background-color: $dark
+	color: #fff
+
+input, textarea, button
+	outline: none
+	&:focus:required:invalid
+		border-color: $text
+	&:required:valid
+		border-color: $text
+
+*
+	overflow-x: hidden
+	overflow-y: hidden
+	box-sizing: border-box
+
+button:focus, button:active
+	outline: none
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Montserrat', sans-serif
+	overflow-x: hidden
+	color: $text
+	background-color: #f1f3f6
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 100vh
+
+button
+	background: none
+	border: none
+
+#finished-tasks
+	label
+		text-decoration: line-through
+
+.list-tasks
+	overflow: auto
+	max-height: 330px
+	overflow-x: hidden
+
+li
+	transition: .5s ease
+	line-height: 1.7
+	padding: 1px
+	margin-right: 10px
+	&:hover
+		background-color: lighten($text, 50%)
+
+input
+	background: none
+	border: none
+	padding: 5px
+	color: $text
+
+.fa-save
+	width: 16px
+
+input#new-task
+	width: 560px
+
+input[type="text"]
+	line-height: 10px
+
+ul li input[type=text]
+	display: none
+
+#new-task input[value]
+	display: none
+
+ul li.editMode label
+	display: none
+
+ul li.editMode .fa-square:before
+	float: left
+
+ul li.editMode input[type=text]
+	display: block
+	float: left
+	width: 500px
+
+label[for='new-task'] 
+	display: block
+
+.mf
+	width: 100px
+
+label
+	margin-left: 5px
+	colot: $text
+	display: inline
+
+.new-task
+	border-bottom: 1px solid lighten($text, 40%)
+	width: 600px
+
+.left__block
+	float: left
+	margin:
+		top: $gutter*2
+		left: $gutter
+
+.toDoList_main
+	width: 1100px
+	height: 500px
+	background-color: #f1f3f6
+	border-radius: 40px
+	box-shadow: 30px 30px 80px rgba(55, 84, 170, 0.1), -30px -30px 80px #fff, inset 4px 4px 20px rgba(255, 255, 255, 0.5)
+	&__welcome, &__info
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 800px
+		height: 400px
+		background-color: #f1f3f6
+		border-radius: 40px
+		box-shadow: 30px 30px 80px rgba(55, 84, 170, 0.1), -30px -30px 80px #fff, inset 4px 4px 20px rgba(255, 255, 255, 0.5)
+
+h3
+	margin-top: $gutter
+
+#unfinished-tasks, #finished-tasks
+	padding-left: 0
+	.edit, .save
+		float: right
+		margin-right: 32px
+	.delete
+		float: right!important
+		margin-right: -43px
+
+.ul
+	// overflow: auto
+	// max-height: 325px
+	// border-bottom: 1px solid $text
+	margin-bottom: $gutter/2
+	// #finished-tasks
+	// 	max-height: 120px
+	// 	overflow: auto
+	// 	margin-bottom: 0
+	#unfinished-tasks
+		margin-bottom: 0
+	li button
+		top: 2px
+		position: relative
+
+.material-icons
+	width: 16px
+	margin-right: 8px
+
+#add
+	float: right
+	margin-top: 8px
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled)
+	float: left
+
+// stylization of a scroll bar
+.list-tasks::-webkit-scrollbar, #finished-tasks::-webkit-scrollbar
+	width: 4px
+	height: 4px
+.list-tasks::-webkit-scrollbar-button, #finished-tasks::-webkit-scrollbar-button
+	background-color: $text
+.list-tasks::-webkit-scrollbar-track, #finished-tasks::-webkit-scrollbar-track
+	background-color: #e6eaf2
+.list-tasks::-webkit-scrollbar-track-piece, #finished-tasks::-webkit-scrollbar-track-piece
+	background-color: #e6eaf2
+.list-tasks::-webkit-scrollbar-thumb, #finished-tasks::-webkit-scrollbar-thumb
+	height: 50px
+	background-color: $text
+	border-radius: 3px
+.list-tasks::-webkit-scrollbar-corner, #finished-tasks::-webkit-scrollbar-corner
+	background-color: #e6eaf2
+.list-tasks::-webkit-resizer, #finished-tasks::-webkit-resizer
+	background-color: #e6eaf2
+
+.right__block
+	width: 420px
+	height: 420px
+	border-left: 1px solid lighten($text, 40%)
+	float: right
+	margin:
+		right: $gutter
+		top: $gutter*2
+		bottom: $gutter*2
+	.alarm-clock
+		text-align: right
+		.time
+			font-size: 36px
+			line-height: 1
+
+.number-of-all-tasks 
+	margin:
+		top: 60px
+		left: $gutter
+	span
+		font-size: 36px
+		margin: $gutter/2
+
+.rights
+	font-size: 12px
+	color: lighten($text, 30%)
+	line-height: 18
+	text-align: center
+
+// -------------------------
+
+.container
+	width: 620px
+	padding:
+		right: $gutter/2
+		left: $gutter/2
+	margin:
+		left: auto
+		right: auto
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.example-grid
+	display: grid
+	grid-gap: $gutter
+	grid-template-columns: 1fr 1fr
+	grid-template-areas: "left right"
+	> div:first-child
+		grid-area: left
+	> div:last-child
+		grid-area: right
+	+media-breakpoint-down(xs)
+		display: block
+		> div
+			padding: $gutter/2 0
+	
+.example-img
+	width: 100%
+
+.parent // Lazy Load Placeholder Generator: https://webdesign-master.ru/services/lazy/
+	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
