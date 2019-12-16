@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		var secs = now.getSeconds();
 		var mins = now.getMinutes();
 		var hrs = now.getHours();
-		var monthName = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+		var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'Jule', 'August', 'September', 'October', 'November', 'December'];
 	
 		if (hrs > 24) {
 			hours.innerHTML = hrs - 24;
