@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() { 
 
 	var addButton = document.getElementById('add');
 	var inputTask = document.getElementById('new-task');
@@ -21,6 +21,23 @@ document.addEventListener("DOMContentLoaded", function() {
 		label.innerText = task;
 		var input = document.createElement('input');
 		input.type = 'text';
+
+		var timeTask = document.createElement('div');
+		timeTask.className = 'div-task-time';
+		var timeTaskHours = document.createElement('span');
+		timeTaskHours.className = 'hoursTask';
+		var timeTaskColon = document.createElement('span');
+		timeTaskColon.className = 'colonTask';
+		timeTaskColon.innerHTML = ':';
+		var timeTaskMinutes = document.createElement('span');
+		timeTaskMinutes.className = 'minutesTask';
+		var dateTask = document.createElement('div');
+		dateTask.className = 'div-task-date';
+		var dateTaskDay = document.createElement('span');
+		dateTaskDay.className = 'dayTask';
+		var dateTaskMonth = document.createElement('span');
+		dateTaskMonth.className = 'monthTask';
+
 		var editButton = document.createElement('button');
 		editButton.className = 'material-icons edit';
 		editButton.innerHTML = '<i class="fas fa-pen material-icons"></i>';
@@ -31,6 +48,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		listItem.appendChild(checkbox);
 		listItem.appendChild(label);
 		listItem.appendChild(input);
+		listItem.appendChild(timeTask);
+		timeTask.appendChild(timeTaskHours);
+		timeTask.appendChild(timeTaskColon);
+		timeTask.appendChild(timeTaskMinutes);
+		listItem.appendChild(dateTask);
+		dateTask.appendChild(dateTaskDay);
+		dateTask.appendChild(dateTaskMonth);
 		listItem.appendChild(editButton);
 		listItem.appendChild(deleteButton);
 
@@ -152,11 +176,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Start time and data
 	var hours = document.querySelector('.hours');
+	var hoursTask = document.querySelector('.hoursTask');
 	var minutes = document.querySelector('.minutes');
+	var minutesTask = document.querySelector('.minutesTask');
 	var seconds = document.querySelector('.seconds');
 	
 	var month = document.querySelector('.month');
+	var monthTask = document.querySelector('.monthTask');
 	var day = document.querySelector('.day');
+	var dayTask = document.querySelector('.dayTask');
 	var year = document.querySelector('.year');
 	
 	function setDate() {
@@ -170,9 +198,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'Jule', 'August', 'September', 'October', 'November', 'December'];
 	
 		if (hrs > 24) {
-			hours.innerHTML = hrs - 24;
+			hours.innerHTML = hrs - 24,
+			hoursTask.innerHTML = hrs - 24;
 		} else {
-			hours.innerHTML = hrs;
+			hours.innerHTML = hrs,
+			hoursTask.innerHTML = hrs;
 		}
 	
 		if (secs < 10) {
@@ -182,31 +212,40 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	
 		if (mins < 10) {
-			minutes.innerHTML = '0' + mins;
+			minutes.innerHTML = '0' + mins,
+			minutesTask.innerHTML = '0' + mins;
 		} else {
-			minutes.innerHTML = mins;
+			minutes.innerHTML = mins,
+			minutesTask.innerHTML = mins;
 		}
 
 		if (hrs < 10) {
-			hours.innerHTML = '0' + hrs;
+			hours.innerHTML = '0' + hrs,
+			hoursTask.innerHTML = '0' + hrs;
 		} else {
-			hours.innerHTML = hrs;
+			hours.innerHTML = hrs,
+			hoursTask.innerHTML = hrs;
 		}
 	
 		month.innerHTML = monthName[mm];
 		day.innerHTML = dd;
 		year.innerHTML = yyyy;
+
+		monthTask.innerHTML = monthName[mm];
+		dayTask.innerHTML = dd;
+
 	}
 	setInterval(setDate, 1000);
 	// End time and date
+	
 
-	// Start
+	// Start counter
 	function tasks(){
 		var fin = document.getElementById('fin').firstElementChild.innerHTML = document.getElementById('finished-tasks').children.length;
 		var unfin = document.getElementById('unfin').firstElementChild.innerHTML = document.getElementById('unfinished-tasks').children.length;
 		var all = document.getElementById('all').firstElementChild.innerHTML = fin + unfin;
 	}
 	setInterval(tasks, 1000);
-	// End
+	// End counter
 	
 });

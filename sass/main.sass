@@ -214,6 +214,16 @@ h3
 	line-height: 18
 	text-align: center
 
+.div-task-time, .div-task-date
+	display: inline
+
+#unfinished-tasks
+	.div-task-time::after
+		content: '/'
+
+#finished-tasks
+	.colonTask
+		display: none
 // -------------------------
 
 .container
